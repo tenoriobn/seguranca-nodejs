@@ -16,7 +16,7 @@ class AuthService {
       throw new Error('Usuário não cadastrado!')
     }
 
-    const senhasIguais = compare(dto.senha, usuario.senha);
+    const senhasIguais = await compare(dto.senha, usuario.senha);
 
     if(!senhasIguais) {
       throw new Error(`Usuário ou senha inválido!`);
