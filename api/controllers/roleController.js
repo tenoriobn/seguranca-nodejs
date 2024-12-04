@@ -7,11 +7,11 @@ class RoleController {
     const { nome, descricao } = req.body;
     
     try {
-      const role = roleService.cadastrar({ nome, descricao });
+      const role = await roleService.cadastrar({ nome, descricao });
 
       res.status(201).send(role);
     } catch (error) {
-      res.status(400).send(error.message);
+      res.status(400).send({ message: error.message });
     }
   }
 }

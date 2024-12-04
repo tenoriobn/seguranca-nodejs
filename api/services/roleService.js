@@ -3,7 +3,7 @@ const uuid = require('uuid');
 
 class RoleService {
   async cadastrar(dto) {
-    const role = database.roles.findOne({
+    const role = await database.roles.findOne({
       where: {
         nome: dto.nome
       }
@@ -14,7 +14,7 @@ class RoleService {
     }
 
     try {
-      const newRole = database.roles.create({
+      const newRole = await database.roles.create({
         id: uuid.v4(),
         nome: dto.nome,
         descricao: dto.descricao
