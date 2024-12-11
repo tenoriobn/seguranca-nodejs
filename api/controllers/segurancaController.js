@@ -13,6 +13,18 @@ class SegurancaController {
     } catch (error) {
       res.status(400).send({ message: error.message });
     }
+  };
+
+  static async cadastrarPermissoesRoles(req, res) {
+    const { roleId, permissoes } = req.body;
+
+    try {
+      const permissoesRole = await segurancaService.cadastrarPermissoesRoles({ roleId, permissoes });
+
+      res.status(201).send(permissoesRole);
+    } catch (error) {
+      res.status(400).send({ message: error.message });
+    }
   }
 }
 
