@@ -30,7 +30,6 @@ const roles = (listaRoles) => {
       return res.status(401).send('Usuário não possui acesso a essa rota!');
     };
 
-
     return next();
   }
 }
