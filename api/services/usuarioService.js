@@ -33,16 +33,15 @@ class UsuarioService {
                     attributes: ['id', 'nome', 'descricao'],
                     through: {
                         attributes: [],
-                    }
+                    },
+                    include: [
+                        {
+                          model: database.permissoes,
+                          as: 'role_das_permissoes',
+                          attributes: ['id', 'nome', 'descricao']
+                        }
+                    ],
                 },
-                {
-                    model: database.permissoes,
-                    as: 'usuario_permissoes',
-                    attributes: ['id', 'nome', 'descricao'],
-                    through: {
-                        attributes: [],
-                    }
-                }
             ]
         })
 
@@ -57,16 +56,15 @@ class UsuarioService {
                     attributes: ['id', 'nome', 'descricao'],
                     through: {
                         attributes: [],
-                    }
+                    },
+                    include: [
+                        {
+                          model: database.permissoes,
+                          as: 'role_das_permissoes',
+                          attributes: ['id', 'nome', 'descricao']
+                        }
+                    ],
                 },
-                {
-                    model: database.permissoes,
-                    as: 'usuario_permissoes',
-                    attributes: ['id', 'nome', 'descricao'],
-                    through: {
-                        attributes: [],
-                    }
-                }
             ],
             where: {
                 id: id
